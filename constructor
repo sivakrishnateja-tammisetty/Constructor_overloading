@@ -1,0 +1,52 @@
+CONSTRUCTOR OVERLOADING:more than 1 type of constructor present within the same class.
+
+
+
+
+
+
+
+
+#include <iostream>
+
+using namespace std;
+class Complex{
+  int real;
+  int img;
+  public:
+  Complex()
+  {
+      real=0;
+      img=0;
+  }
+  Complex(int x,int y)
+  {
+      real=x;
+      img=y;
+  }
+  Complex(const Complex &z)//for copy constructor we need to take argument as reference and constant
+  {
+      real=z.real;
+      img=z.img;
+  }
+  void display();//declaration
+  //void display()
+  //{
+   //   cout<<real<<" +i"<<img<<endl;
+  //}
+};
+void Complex::display()
+{
+    cout<<real<<" +i"<<img<<endl;
+}
+int main()
+{
+    Complex a;
+    a.display();
+    Complex b(1,3);
+    b.display();
+    Complex c(b);
+    c.display();
+    
+    return 0;
+}
